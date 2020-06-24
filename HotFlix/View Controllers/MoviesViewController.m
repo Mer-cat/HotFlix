@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.tableView.dataSource = self; //points back at itself
     self.tableView.delegate = self;
     
@@ -47,6 +48,7 @@
                
                //Reload the table view data
                [self.tableView reloadData];
+               
            } //lines inside block are called once network call is finished
        }];
     [task resume];
@@ -63,7 +65,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //creates an instance of UITableViewCell and uses cells with identifier MovieCell
     
     NSDictionary *movie = self.movies[indexPath.row]; //associates right movie with the right row
-    cell.textLabel.text = movie[@"title"];
+    //cell.textLabel.text = movie[@"title"];
+    
     return cell;
 }
 
