@@ -1,0 +1,590 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A817F24A3BAE4002CB55B /* AppDelegate.m */; };
+		D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A818224A3BAE4002CB55B /* SceneDelegate.m */; };
+		D44A818624A3BAE4002CB55B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A818524A3BAE4002CB55B /* ViewController.m */; };
+		D44A818924A3BAE5002CB55B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44A818724A3BAE4002CB55B /* Main.storyboard */; };
+		D44A818B24A3BAE5002CB55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44A818A24A3BAE5002CB55B /* Assets.xcassets */; };
+		D44A818E24A3BAE5002CB55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */; };
+		D44A819124A3BAE5002CB55B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A819024A3BAE5002CB55B /* main.m */; };
+		D44A819B24A3BAE5002CB55B /* HotFlixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A819A24A3BAE5002CB55B /* HotFlixTests.m */; };
+		D44A81A624A3BAE6002CB55B /* HotFlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D44A819724A3BAE5002CB55B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44A817324A3BAE4002CB55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D44A817A24A3BAE4002CB55B;
+			remoteInfo = HotFlix;
+		};
+		D44A81A224A3BAE6002CB55B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D44A817324A3BAE4002CB55B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D44A817A24A3BAE4002CB55B;
+			remoteInfo = HotFlix;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D44A817B24A3BAE4002CB55B /* HotFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44A817E24A3BAE4002CB55B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D44A817F24A3BAE4002CB55B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D44A818124A3BAE4002CB55B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		D44A818224A3BAE4002CB55B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D44A818424A3BAE4002CB55B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D44A818524A3BAE4002CB55B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D44A818824A3BAE5002CB55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D44A818A24A3BAE5002CB55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D44A818D24A3BAE5002CB55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D44A818F24A3BAE5002CB55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44A819024A3BAE5002CB55B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D44A819624A3BAE5002CB55B /* HotFlixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotFlixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44A819A24A3BAE5002CB55B /* HotFlixTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotFlixTests.m; sourceTree = "<group>"; };
+		D44A819C24A3BAE5002CB55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44A81A124A3BAE6002CB55B /* HotFlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotFlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotFlixUITests.m; sourceTree = "<group>"; };
+		D44A81A724A3BAE6002CB55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D44A817824A3BAE4002CB55B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819324A3BAE5002CB55B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819E24A3BAE6002CB55B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D44A817224A3BAE4002CB55B = {
+			isa = PBXGroup;
+			children = (
+				D44A817D24A3BAE4002CB55B /* HotFlix */,
+				D44A819924A3BAE5002CB55B /* HotFlixTests */,
+				D44A81A424A3BAE6002CB55B /* HotFlixUITests */,
+				D44A817C24A3BAE4002CB55B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D44A817C24A3BAE4002CB55B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D44A817B24A3BAE4002CB55B /* HotFlix.app */,
+				D44A819624A3BAE5002CB55B /* HotFlixTests.xctest */,
+				D44A81A124A3BAE6002CB55B /* HotFlixUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D44A817D24A3BAE4002CB55B /* HotFlix */ = {
+			isa = PBXGroup;
+			children = (
+				D44A817E24A3BAE4002CB55B /* AppDelegate.h */,
+				D44A817F24A3BAE4002CB55B /* AppDelegate.m */,
+				D44A818124A3BAE4002CB55B /* SceneDelegate.h */,
+				D44A818224A3BAE4002CB55B /* SceneDelegate.m */,
+				D44A818424A3BAE4002CB55B /* ViewController.h */,
+				D44A818524A3BAE4002CB55B /* ViewController.m */,
+				D44A818724A3BAE4002CB55B /* Main.storyboard */,
+				D44A818A24A3BAE5002CB55B /* Assets.xcassets */,
+				D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */,
+				D44A818F24A3BAE5002CB55B /* Info.plist */,
+				D44A819024A3BAE5002CB55B /* main.m */,
+			);
+			path = HotFlix;
+			sourceTree = "<group>";
+		};
+		D44A819924A3BAE5002CB55B /* HotFlixTests */ = {
+			isa = PBXGroup;
+			children = (
+				D44A819A24A3BAE5002CB55B /* HotFlixTests.m */,
+				D44A819C24A3BAE5002CB55B /* Info.plist */,
+			);
+			path = HotFlixTests;
+			sourceTree = "<group>";
+		};
+		D44A81A424A3BAE6002CB55B /* HotFlixUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */,
+				D44A81A724A3BAE6002CB55B /* Info.plist */,
+			);
+			path = HotFlixUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D44A817A24A3BAE4002CB55B /* HotFlix */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44A81AA24A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlix" */;
+			buildPhases = (
+				D44A817724A3BAE4002CB55B /* Sources */,
+				D44A817824A3BAE4002CB55B /* Frameworks */,
+				D44A817924A3BAE4002CB55B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HotFlix;
+			productName = HotFlix;
+			productReference = D44A817B24A3BAE4002CB55B /* HotFlix.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D44A819524A3BAE5002CB55B /* HotFlixTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44A81AD24A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlixTests" */;
+			buildPhases = (
+				D44A819224A3BAE5002CB55B /* Sources */,
+				D44A819324A3BAE5002CB55B /* Frameworks */,
+				D44A819424A3BAE5002CB55B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D44A819824A3BAE5002CB55B /* PBXTargetDependency */,
+			);
+			name = HotFlixTests;
+			productName = HotFlixTests;
+			productReference = D44A819624A3BAE5002CB55B /* HotFlixTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D44A81A024A3BAE6002CB55B /* HotFlixUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D44A81B024A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlixUITests" */;
+			buildPhases = (
+				D44A819D24A3BAE6002CB55B /* Sources */,
+				D44A819E24A3BAE6002CB55B /* Frameworks */,
+				D44A819F24A3BAE6002CB55B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D44A81A324A3BAE6002CB55B /* PBXTargetDependency */,
+			);
+			name = HotFlixUITests;
+			productName = HotFlixUITests;
+			productReference = D44A81A124A3BAE6002CB55B /* HotFlixUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D44A817324A3BAE4002CB55B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = mercycat;
+				TargetAttributes = {
+					D44A817A24A3BAE4002CB55B = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					D44A819524A3BAE5002CB55B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = D44A817A24A3BAE4002CB55B;
+					};
+					D44A81A024A3BAE6002CB55B = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = D44A817A24A3BAE4002CB55B;
+					};
+				};
+			};
+			buildConfigurationList = D44A817624A3BAE4002CB55B /* Build configuration list for PBXProject "HotFlix" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D44A817224A3BAE4002CB55B;
+			productRefGroup = D44A817C24A3BAE4002CB55B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D44A817A24A3BAE4002CB55B /* HotFlix */,
+				D44A819524A3BAE5002CB55B /* HotFlixTests */,
+				D44A81A024A3BAE6002CB55B /* HotFlixUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D44A817924A3BAE4002CB55B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44A818E24A3BAE5002CB55B /* LaunchScreen.storyboard in Resources */,
+				D44A818B24A3BAE5002CB55B /* Assets.xcassets in Resources */,
+				D44A818924A3BAE5002CB55B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819424A3BAE5002CB55B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819F24A3BAE6002CB55B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D44A817724A3BAE4002CB55B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44A818624A3BAE4002CB55B /* ViewController.m in Sources */,
+				D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */,
+				D44A819124A3BAE5002CB55B /* main.m in Sources */,
+				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819224A3BAE5002CB55B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44A819B24A3BAE5002CB55B /* HotFlixTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D44A819D24A3BAE6002CB55B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D44A81A624A3BAE6002CB55B /* HotFlixUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D44A819824A3BAE5002CB55B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D44A817A24A3BAE4002CB55B /* HotFlix */;
+			targetProxy = D44A819724A3BAE5002CB55B /* PBXContainerItemProxy */;
+		};
+		D44A81A324A3BAE6002CB55B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D44A817A24A3BAE4002CB55B /* HotFlix */;
+			targetProxy = D44A81A224A3BAE6002CB55B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D44A818724A3BAE4002CB55B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44A818824A3BAE5002CB55B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D44A818D24A3BAE5002CB55B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D44A81A824A3BAE6002CB55B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D44A81A924A3BAE6002CB55B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D44A81AB24A3BAE6002CB55B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D44A81AC24A3BAE6002CB55B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlix/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlix;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D44A81AE24A3BAE6002CB55B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlixTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotFlix.app/HotFlix";
+			};
+			name = Debug;
+		};
+		D44A81AF24A3BAE6002CB55B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlixTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlixTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HotFlix.app/HotFlix";
+			};
+			name = Release;
+		};
+		D44A81B124A3BAE6002CB55B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlixUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HotFlix;
+			};
+			name = Debug;
+		};
+		D44A81B224A3BAE6002CB55B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7ZHC9LK6JK;
+				INFOPLIST_FILE = HotFlixUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mercycat.HotFlixUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HotFlix;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D44A817624A3BAE4002CB55B /* Build configuration list for PBXProject "HotFlix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44A81A824A3BAE6002CB55B /* Debug */,
+				D44A81A924A3BAE6002CB55B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44A81AA24A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlix" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44A81AB24A3BAE6002CB55B /* Debug */,
+				D44A81AC24A3BAE6002CB55B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44A81AD24A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlixTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44A81AE24A3BAE6002CB55B /* Debug */,
+				D44A81AF24A3BAE6002CB55B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D44A81B024A3BAE6002CB55B /* Build configuration list for PBXNativeTarget "HotFlixUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D44A81B124A3BAE6002CB55B /* Debug */,
+				D44A81B224A3BAE6002CB55B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D44A817324A3BAE4002CB55B /* Project object */;
+}
