@@ -45,22 +45,24 @@
                    NSLog(@"%@", movie[@"title"]);
                }
                
-               // TODO: Reload your table view data
+               //Reload the table view data
+               [self.tableView reloadData];
            } //lines inside block are called once network call is finished
        }];
     [task resume];
 }
 
-//Creates 20 rows
+//Creates a row for each movie
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.movies.count; //number of movie entries
 }
 
-//Shows the table view on the phone with the number of rows
+//Configures each row
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init]; //creates an instance of UITableViewCell
     
-    cell.textLabel.text = [NSString stringWithFormat:@"row: %d, section %d", indexPath.row, indexPath.section];
+    NSDictionary *movie = self.movies[indexPath.row]; //associates right movie with the right row
+    cell.textLabel.text = movie[@"title"];
     return cell;
 }
 
