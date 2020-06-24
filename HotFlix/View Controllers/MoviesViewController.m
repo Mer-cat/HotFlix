@@ -8,6 +8,7 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h" //allows us to use MovieCell as object in this file
+#import "UIImageView+AFNetworking.h" // allows us to import images for the posters
 
 //this class implements the protocols inside the arrows -> needs certain functions implemented
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -71,6 +72,13 @@
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"]; //pulls from the API
     
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500"; //default prefix for the poster image URLS
+    NSString *posterURLString = movie[@"poster_path"]; //backdrop is the bigger one
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString]; //get full URL by appending poster path to  URL
+    //NSURL is basically a string that check to see if it's a valid URL
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    cell.posterView.image = nil; //prevent any possible flickering effects by clearing out previous image
+    [cell.posterView setImageWithURL:posterURL]; //could also use a different method to specify a default image
     
     return cell;
 }
