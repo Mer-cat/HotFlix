@@ -7,14 +7,17 @@
 //
 
 #import "MoviesViewController.h"
-#import "MovieCell.h" //allows us to use MovieCell as object in this file
-#import "UIImageView+AFNetworking.h" // allows us to import images for the posters
+#import "MovieCell.h"
+#import "UIImageView+AFNetworking.h"
 
-//this class implements the protocols inside the arrows -> needs certain functions implemented
+/**
+ * A view controller for the main part of the HotFlix app.
+ */
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *movies; //like a private field in Java with auto getter and setter methods. Strong keyword will preserve values
+@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -22,63 +25,84 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.tableView.dataSource = self; //points back at itself
+    // Use the MoviesViewController as the data source and delegate for the tableView
+    self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    //make network call
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"]; //could simply change the url to be whatever you wanna get, doesn't need to be now playing
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0]; //we want to always be able to see it reload
+    // Make network call
+    [self fetchMovies];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged]; //calls fetchMovies method every time user pulls down to refresh
+    
+    [self.tableView addSubview:self.refreshControl];
+}
+
+// Makes network call to fetch information on currently playing movies
+- (void)fetchMovies {
+    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
+   
+    // Allows reloads
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
            }
-           else { //API gives something back
+           else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
-               //prints out the resulting dataDictionary to terminal
-               NSLog(@"%@", dataDictionary); //%@ specifies an object
+               // Prints out the resulting dataDictionary to terminal
+               NSLog(@"%@", dataDictionary);
                
-               self.movies = dataDictionary[@"results"]; //give the key as results
+               self.movies = dataDictionary[@"results"];
                
                //iterate through the movies, print the titles
                for (NSDictionary *movie in self.movies){
                    NSLog(@"%@", movie[@"title"]);
                }
                
-               //Reload the table view data
+               // Reload the table view data since network calls can take
+               // longer than the rest of the code
                [self.tableView reloadData];
                
-           } //lines inside block are called once network call is finished
+           }
        }];
     [task resume];
 }
 
-//Creates a row for each movie
+// Creates a number of rows corresponding to the number of movie entries
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count; //number of movie entries
+    return self.movies.count;
 }
 
-//Configures each row
+// Configures each row
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //creates an instance of MovieCell (UITableViewCell) and uses cells with identifier MovieCell
+    // Creates an instance of MovieCell(UITableViewCell) and uses cells with identifier MovieCell
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
-    NSDictionary *movie = self.movies[indexPath.row]; //associates right movie with the right row
+    // Associates right movie with the right row
+    NSDictionary *movie = self.movies[indexPath.row];
     
-    //assigns the title and overview for each movie to that movie's cell
+    // Assigns the title and overview for each movie to that movie's cell
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"overview"]; //pulls from the API
     
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500"; //default prefix for the poster image URLS
-    NSString *posterURLString = movie[@"poster_path"]; //backdrop is the bigger one
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString]; //get full URL by appending poster path to  URL
-    //NSURL is basically a string that check to see if it's a valid URL
+    // Default prefix for the poster image URLS
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    
+    // NSURL is basically a string that check to see if it's a valid URL
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    cell.posterView.image = nil; //prevent any possible flickering effects by clearing out previous image
-    [cell.posterView setImageWithURL:posterURL]; //could also use a different method to specify a default image
+    
+    // Prevent any possible flickering effects by clearing out previous image
+    cell.posterView.image = nil;
+    
+    // Assign the image from the posterURL to the posterView for each cell
+    [cell.posterView setImageWithURL:posterURL];
     
     return cell;
 }
