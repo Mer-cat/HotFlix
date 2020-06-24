@@ -8,7 +8,7 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h"
-#import "UIImageView+AFNetworking.h"
+#import "UIImageView+AFNetworking.h" // Allows us to pull in poster images directly from URL
 
 /**
  * A view controller for the main part of the HotFlix app.
@@ -34,9 +34,11 @@
     [self fetchMovies];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged]; //calls fetchMovies method every time user pulls down to refresh
     
-    [self.tableView addSubview:self.refreshControl];
+    // Refreshes the movie list each time the user pulls down
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 // Makes network call to fetch information on currently playing movies
@@ -46,6 +48,8 @@
     // Allows reloads
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+    
+    // This section of the code runs once the network request returns.
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
@@ -66,8 +70,10 @@
                // Reload the table view data since network calls can take
                // longer than the rest of the code
                [self.tableView reloadData];
-               
            }
+        
+        // Stops the refreshing symbol once the movies have been refreshed
+        [self.refreshControl endRefreshing];
        }];
     [task resume];
 }
