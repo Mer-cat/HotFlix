@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A817F24A3BAE4002CB55B /* AppDelegate.m */; };
 		D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A818224A3BAE4002CB55B /* SceneDelegate.m */; };
-		D44A818624A3BAE4002CB55B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A818524A3BAE4002CB55B /* ViewController.m */; };
 		D44A818924A3BAE5002CB55B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44A818724A3BAE4002CB55B /* Main.storyboard */; };
 		D44A818B24A3BAE5002CB55B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44A818A24A3BAE5002CB55B /* Assets.xcassets */; };
 		D44A818E24A3BAE5002CB55B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */; };
@@ -42,8 +41,6 @@
 		D44A817F24A3BAE4002CB55B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D44A818124A3BAE4002CB55B /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		D44A818224A3BAE4002CB55B /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D44A818424A3BAE4002CB55B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D44A818524A3BAE4002CB55B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D44A818824A3BAE5002CB55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D44A818A24A3BAE5002CB55B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44A818D24A3BAE5002CB55B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,15 +111,11 @@
 				D44A817F24A3BAE4002CB55B /* AppDelegate.m */,
 				D44A818124A3BAE4002CB55B /* SceneDelegate.h */,
 				D44A818224A3BAE4002CB55B /* SceneDelegate.m */,
-				D44A818424A3BAE4002CB55B /* ViewController.h */,
-				D44A818524A3BAE4002CB55B /* ViewController.m */,
 				D44A818724A3BAE4002CB55B /* Main.storyboard */,
 				D44A818A24A3BAE5002CB55B /* Assets.xcassets */,
 				D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */,
 				D44A818F24A3BAE5002CB55B /* Info.plist */,
 				D44A819024A3BAE5002CB55B /* main.m */,
-				D44A81B324A3C34D002CB55B /* MoviesViewController.h */,
-				D44A81B424A3C34D002CB55B /* MoviesViewController.m */,
 			);
 			path = HotFlix;
 			sourceTree = "<group>";
@@ -148,6 +141,8 @@
 		D44A81B624A3C3F9002CB55B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D44A81B324A3C34D002CB55B /* MoviesViewController.h */,
+				D44A81B424A3C34D002CB55B /* MoviesViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -296,7 +291,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D44A818624A3BAE4002CB55B /* ViewController.m in Sources */,
 				D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */,
 				D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
