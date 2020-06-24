@@ -59,7 +59,8 @@
 
 //Configures each row
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init]; //creates an instance of UITableViewCell
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //creates an instance of UITableViewCell and uses cells with identifier MovieCell
     
     NSDictionary *movie = self.movies[indexPath.row]; //associates right movie with the right row
     cell.textLabel.text = movie[@"title"];
