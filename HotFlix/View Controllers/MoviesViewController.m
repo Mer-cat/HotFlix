@@ -7,6 +7,7 @@
 //
 
 #import "MoviesViewController.h"
+#import "MovieCell.h" //allows us to use MovieCell as object in this file
 
 //this class implements the protocols inside the arrows -> needs certain functions implemented
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -62,10 +63,14 @@
 //Configures each row
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //creates an instance of UITableViewCell and uses cells with identifier MovieCell
+    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //creates an instance of MovieCell (UITableViewCell) and uses cells with identifier MovieCell
     
     NSDictionary *movie = self.movies[indexPath.row]; //associates right movie with the right row
-    //cell.textLabel.text = movie[@"title"];
+    
+    //assigns the title and overview for each movie to that movie's cell
+    cell.titleLabel.text = movie[@"title"];
+    cell.synopsisLabel.text = movie[@"overview"]; //pulls from the API
+    
     
     return cell;
 }
