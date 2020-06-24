@@ -8,8 +8,10 @@
 
 #import "MoviesViewController.h"
 
-@interface MoviesViewController ()
+//this class implements the protocols inside the arrows -> needs certain functions implemented
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies; //like a private field in Java with auto getter and setter methods. Strong keyword will preserve values
 
 @end
@@ -19,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.dataSource = self; //points back at itself
+    self.tableView.delegate = self;
     
     //make network call
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"]; //could simply change the url to be whatever you wanna get, doesn't need to be now playing
@@ -31,8 +35,9 @@
            else { //API gives something back
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 
+               //prints out the resulting dataDictionary to terminal
                NSLog(@"%@", dataDictionary); //%@ specifies an object
-               // TODO: Get the array of movies
+               
                self.movies = dataDictionary[@"results"]; //give the key as results
                
                //iterate through the movies, print the titles
@@ -40,11 +45,23 @@
                    NSLog(@"%@", movie[@"title"]);
                }
                
-               // TODO: Store the movies in a property to use elsewhere
                // TODO: Reload your table view data
            } //lines inside block are called once network call is finished
        }];
     [task resume];
+}
+
+//Creates 20 rows
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+//Shows the table view on the phone with the number of rows
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [[UITableViewCell alloc] init]; //creates an instance of UITableViewCell
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"row: %d, section %d", indexPath.row, indexPath.section];
+    return cell;
 }
 
 /*
