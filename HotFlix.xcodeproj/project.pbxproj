@@ -16,6 +16,7 @@
 		D44A819124A3BAE5002CB55B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A819024A3BAE5002CB55B /* main.m */; };
 		D44A819B24A3BAE5002CB55B /* HotFlixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A819A24A3BAE5002CB55B /* HotFlixTests.m */; };
 		D44A81A624A3BAE6002CB55B /* HotFlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */; };
+		D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81B424A3C34D002CB55B /* MoviesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		D44A81A124A3BAE6002CB55B /* HotFlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HotFlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotFlixUITests.m; sourceTree = "<group>"; };
 		D44A81A724A3BAE6002CB55B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D44A81B324A3C34D002CB55B /* MoviesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		D44A81B424A3C34D002CB55B /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,9 @@
 		D44A817D24A3BAE4002CB55B /* HotFlix */ = {
 			isa = PBXGroup;
 			children = (
+				D44A81B924A3C40C002CB55B /* Models */,
+				D44A81B724A3C401002CB55B /* Views */,
+				D44A81B624A3C3F9002CB55B /* View Controllers */,
 				D44A817E24A3BAE4002CB55B /* AppDelegate.h */,
 				D44A817F24A3BAE4002CB55B /* AppDelegate.m */,
 				D44A818124A3BAE4002CB55B /* SceneDelegate.h */,
@@ -115,6 +121,8 @@
 				D44A818C24A3BAE5002CB55B /* LaunchScreen.storyboard */,
 				D44A818F24A3BAE5002CB55B /* Info.plist */,
 				D44A819024A3BAE5002CB55B /* main.m */,
+				D44A81B324A3C34D002CB55B /* MoviesViewController.h */,
+				D44A81B424A3C34D002CB55B /* MoviesViewController.m */,
 			);
 			path = HotFlix;
 			sourceTree = "<group>";
@@ -135,6 +143,27 @@
 				D44A81A724A3BAE6002CB55B /* Info.plist */,
 			);
 			path = HotFlixUITests;
+			sourceTree = "<group>";
+		};
+		D44A81B624A3C3F9002CB55B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D44A81B724A3C401002CB55B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D44A81B924A3C40C002CB55B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,6 +298,7 @@
 			files = (
 				D44A818624A3BAE4002CB55B /* ViewController.m in Sources */,
 				D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */,
+				D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
 				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
 			);
