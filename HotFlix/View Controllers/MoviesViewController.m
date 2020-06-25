@@ -8,7 +8,9 @@
 
 #import "MoviesViewController.h"
 #import "MovieCell.h"
+#import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h" // Allows us to pull in poster images directly from URL
+
 
 /**
  * A view controller for the main part of the HotFlix app.
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator; // Remember to re-link this outlet when you remake the activity indicator
 
 @end
 
@@ -43,6 +46,8 @@
 
 // Makes network call to fetch information on currently playing movies
 - (void)fetchMovies {
+    //unsure if correct place to put below line
+    //[self.activityIndicator startAnimating];
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
    
     // Allows reloads
@@ -74,6 +79,11 @@
         
         // Stops the refreshing symbol once the movies have been refreshed
         [self.refreshControl endRefreshing];
+        
+        // Unsure if code below does anything at all really
+        // Stops and hides the activity indicator when
+        // the movies are done loading
+        //[self.activityIndicator stopAnimating];
        }];
     [task resume];
 }
@@ -113,14 +123,22 @@
     return cell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    
+    // Passes in the movie associated with the cell to the next view controller
+    NSDictionary *movie = self.movies[indexPath.row];
+    DetailsViewController *detailsViewController = [segue destinationViewController];
+    detailsViewController.movie = movie;
 }
-*/
+
 
 @end

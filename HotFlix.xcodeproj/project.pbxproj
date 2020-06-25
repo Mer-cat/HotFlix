@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,7 @@
 		D44A81A624A3BAE6002CB55B /* HotFlixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81A524A3BAE6002CB55B /* HotFlixUITests.m */; };
 		D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81B424A3C34D002CB55B /* MoviesViewController.m */; };
 		D44A81BC24A3FB01002CB55B /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BB24A3FB01002CB55B /* MovieCell.m */; };
+		D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BE24A4524F002CB55B /* DetailsViewController.m */; };
 		F32BF9DF40723A533BC339ED /* Pods_HotFlix_HotFlixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418AE3730AF2B4720E6855A5 /* Pods_HotFlix_HotFlixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		D44A81B424A3C34D002CB55B /* MoviesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
 		D44A81BA24A3FB01002CB55B /* MovieCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		D44A81BB24A3FB01002CB55B /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
+		D44A81BD24A4524F002CB55B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		D44A81BE24A4524F002CB55B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		EB8ECDC12C20A86D68D2B4AA /* Pods-HotFlix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlix.release.xcconfig"; path = "Target Support Files/Pods-HotFlix/Pods-HotFlix.release.xcconfig"; sourceTree = "<group>"; };
 		F6CF525F1419F87BFC305705 /* Pods-HotFlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlixTests.release.xcconfig"; path = "Target Support Files/Pods-HotFlixTests/Pods-HotFlixTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +122,6 @@
 				9BB29141FC09F47CFD90FCFF /* Pods-HotFlixTests.debug.xcconfig */,
 				F6CF525F1419F87BFC305705 /* Pods-HotFlixTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -187,6 +189,8 @@
 			children = (
 				D44A81B324A3C34D002CB55B /* MoviesViewController.h */,
 				D44A81B424A3C34D002CB55B /* MoviesViewController.m */,
+				D44A81BD24A4524F002CB55B /* DetailsViewController.h */,
+				D44A81BE24A4524F002CB55B /* DetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -448,6 +452,7 @@
 				D44A818024A3BAE4002CB55B /* AppDelegate.m in Sources */,
 				D44A81BC24A3FB01002CB55B /* MovieCell.m in Sources */,
 				D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */,
+				D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
 				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
 			);
