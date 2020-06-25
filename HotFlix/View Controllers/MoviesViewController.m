@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator; // Remember to re-link this outlet when you remake the activity indicator
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -47,7 +47,8 @@
 // Makes network call to fetch information on currently playing movies
 - (void)fetchMovies {
     //unsure if correct place to put below line
-    //[self.activityIndicator startAnimating];
+    [self.activityIndicator startAnimating];
+    
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
    
     // Allows reloads
@@ -83,7 +84,7 @@
         // Unsure if code below does anything at all really
         // Stops and hides the activity indicator when
         // the movies are done loading
-        //[self.activityIndicator stopAnimating];
+        [self.activityIndicator stopAnimating];
        }];
     [task resume];
 }
