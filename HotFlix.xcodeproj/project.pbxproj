@@ -20,6 +20,8 @@
 		D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81B424A3C34D002CB55B /* MoviesViewController.m */; };
 		D44A81BC24A3FB01002CB55B /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BB24A3FB01002CB55B /* MovieCell.m */; };
 		D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BE24A4524F002CB55B /* DetailsViewController.m */; };
+		D4BCF0B224A549D400B72895 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */; };
+		D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */; };
 		F32BF9DF40723A533BC339ED /* Pods_HotFlix_HotFlixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418AE3730AF2B4720E6855A5 /* Pods_HotFlix_HotFlixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +72,10 @@
 		D44A81BB24A3FB01002CB55B /* MovieCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		D44A81BD24A4524F002CB55B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		D44A81BE24A4524F002CB55B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		D4BCF0B024A549D400B72895 /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
+		D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
+		D4BCF0B324A54BE000B72895 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
+		D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
 		EB8ECDC12C20A86D68D2B4AA /* Pods-HotFlix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlix.release.xcconfig"; path = "Target Support Files/Pods-HotFlix/Pods-HotFlix.release.xcconfig"; sourceTree = "<group>"; };
 		F6CF525F1419F87BFC305705 /* Pods-HotFlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlixTests.release.xcconfig"; path = "Target Support Files/Pods-HotFlixTests/Pods-HotFlixTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +197,8 @@
 				D44A81B424A3C34D002CB55B /* MoviesViewController.m */,
 				D44A81BD24A4524F002CB55B /* DetailsViewController.h */,
 				D44A81BE24A4524F002CB55B /* DetailsViewController.m */,
+				D4BCF0B024A549D400B72895 /* MoviesGridViewController.h */,
+				D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -200,6 +208,8 @@
 			children = (
 				D44A81BA24A3FB01002CB55B /* MovieCell.h */,
 				D44A81BB24A3FB01002CB55B /* MovieCell.m */,
+				D4BCF0B324A54BE000B72895 /* MovieCollectionCell.h */,
+				D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -453,8 +463,10 @@
 				D44A81BC24A3FB01002CB55B /* MovieCell.m in Sources */,
 				D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */,
 				D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */,
+				D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
 				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
+				D4BCF0B224A549D400B72895 /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
