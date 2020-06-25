@@ -46,9 +46,11 @@
 
 // Makes network call to fetch information on currently playing movies
 - (void)fetchMovies {
-    //unsure if correct place to put below line
+
+    // Show activity indicator on screen
     [self.activityIndicator startAnimating];
     
+    // Fetch movie data
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
    
     // Allows reloads
@@ -59,6 +61,8 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
+               [self createNetworkAlert];
+
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -81,7 +85,6 @@
         // Stops the refreshing symbol once the movies have been refreshed
         [self.refreshControl endRefreshing];
         
-        // Unsure if code below does anything at all really
         // Stops and hides the activity indicator when
         // the movies are done loading
         [self.activityIndicator stopAnimating];
@@ -124,6 +127,39 @@
     return cell;
 }
 
+// Creates a network alert on the screen
+-(void)createNetworkAlert {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot get movies"
+           message:@"The internet connection appears to be offline."
+    preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    /* Note: Take this out if it does not get used
+    // Create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                        style:UIAlertActionStyleCancel
+                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle cancel response here. Doing nothing will dismiss the view.
+                                                      }];
+    
+    // Add the cancel action to the alertController
+    [alert addAction:cancelAction];
+     */
+
+    // Create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+                                                     }];
+    // Add the OK action to the alert controller
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
+    
+}
+ 
 
 #pragma mark - Navigation
 
