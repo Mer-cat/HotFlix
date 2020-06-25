@@ -133,27 +133,27 @@
            message:@"The internet connection appears to be offline."
     preferredStyle:(UIAlertControllerStyleAlert)];
     
-    /* Note: Take this out if it does not get used
+    
     // Create a cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                         style:UIAlertActionStyleCancel
                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle cancel response here. Doing nothing will dismiss the view.
+                                                             // Simply dismisses the view
                                                       }];
     
     // Add the cancel action to the alertController
     [alert addAction:cancelAction];
-     */
 
-    // Create an OK action
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+    // Create an Try Again action
+    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
+                                                            [self fetchMovies];  // Retry
                                                      }];
-    // Add the OK action to the alert controller
-    [alert addAction:okAction];
+    // Add the Try Again action to the alert controller
+    [alert addAction:tryAgainAction];
     
+    // Show the alert
     [self presentViewController:alert animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
