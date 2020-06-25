@@ -27,6 +27,19 @@
     self.collectionView.delegate = self;
     
     [self fetchMovies];
+    
+    // Setup for layout of collection view
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    
+    layout.minimumInteritemSpacing = 5;
+    layout.minimumLineSpacing = 5;
+    CGFloat postersPerLine = 2;
+    
+    // Width of each movie posters that accounts for space between posters
+    CGFloat itemWidth = (self.collectionView.frame.size.width - layout.minimumInteritemSpacing * (postersPerLine - 1)) / postersPerLine;
+    CGFloat itemHeight = itemWidth * 1.5;
+    layout.itemSize = CGSizeMake(itemWidth , itemHeight);
+    
 }
 
 // Makes network call to fetch information on currently playing movies
@@ -34,29 +47,29 @@
     
     // Fetch movie data
     NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
-   
+    
     // Allows reloads
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
     
     // This section of the code runs once the network request returns.
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-           if (error != nil) {
-               NSLog(@"%@", [error localizedDescription]);
-
-           }
-           else {
-               NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
-               // Prints out the resulting dataDictionary to terminal
-               NSLog(@"%@", dataDictionary);
-               
-               self.movies = dataDictionary[@"results"];
-               
-               [self.collectionView reloadData];
-           }
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+            
+        }
+        else {
+            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            // Prints out the resulting dataDictionary to terminal
+            NSLog(@"%@", dataDictionary);
+            
+            self.movies = dataDictionary[@"results"];
+            
+            [self.collectionView reloadData];
+        }
         
-       }];
+    }];
     [task resume];
 }
 
@@ -70,18 +83,17 @@
     
     // Associates right movie with the right item in the collection view
     NSDictionary *movie = self.movies[indexPath.item];
-
-   NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-   NSString *posterURLString = movie[@"poster_path"];
-   NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-   NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-   
-   // Prevent any possible flickering effects by clearing out previous image
-   cell.posterView.image = nil;
-   
-   // Assign the image from the posterURL to the posterView for each cell
-   [cell.posterView setImageWithURL:posterURL];
-
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = movie[@"poster_path"];
+    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    
+    // Prevent any possible flickering effects by clearing out previous image
+    cell.posterView.image = nil;
+    
+    // Assign the image from the posterURL to the posterView for each cell
+    [cell.posterView setImageWithURL:posterURL];
+    
     return cell;
 }
 
@@ -89,14 +101,14 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 
