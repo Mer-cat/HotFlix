@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator; //TODO: Make this pretty using a 3rd party
+
 
 @end
 
@@ -49,7 +49,8 @@
 - (void)fetchMovies {
     
     // Show activity indicator on screen
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    MBProgressHUD *activityIndicator = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    activityIndicator.label.text = NSLocalizedString(@"Loading...", @"HUD loading title");
 
     // Allows things to go on in the background while the HUD is animating
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
@@ -83,7 +84,7 @@
             
             // Stops and hides the activity indicator when
             // the movies are done loading
-            [hud hideAnimated:YES];
+            [activityIndicator hideAnimated:YES];
             
         }];
         [task resume];
