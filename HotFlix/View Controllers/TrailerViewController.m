@@ -22,22 +22,19 @@
     [super viewDidLoad];
     
     [self fetchTrailer];
-    
-    
 }
 
 - (IBAction)dismissTrailerView:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
 - (void)fetchTrailer {
-    NSURL *url = [NSURL URLWithString:self.trailerURL];
     
-    // Allows reloads
+    // First fetches the key for the particular movie being looked at
+    NSURL *url = [NSURL URLWithString:self.trailerURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    
-    // This section of the code runs once the network request returns.
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
@@ -54,13 +51,12 @@
             
             NSURL *fullTrailerURL = [NSURL URLWithString:fullTrailerURLString];
             
+            // Fetch the trailer video
             NSURLRequest *request = [NSURLRequest requestWithURL:fullTrailerURL
                 cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
             timeoutInterval:10.0];
             
             [self.trailerWebView loadRequest:request];
-            
-            
         }
     }];
     [task resume];
