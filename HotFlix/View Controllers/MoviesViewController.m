@@ -132,6 +132,7 @@
     return cell;
 }
 
+// Filters movies shown based on search query
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if(searchText.length != 0) {
@@ -145,6 +146,24 @@
     }
     
     [self.tableView reloadData];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+
+// Hides the search bar and clears it if user cancels
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+    self.filteredMovies = self.movies;
+    [self.tableView reloadData];
+}
+
+// Hides the search bar when search complete
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar resignFirstResponder];
 }
 
 // Creates a network alert on the screen
