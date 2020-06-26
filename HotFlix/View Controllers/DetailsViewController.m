@@ -29,17 +29,29 @@
     // Retrieves the URL for the movie poster and sets it to the poster view
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
     NSString *posterURLString = self.movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
     
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    [self.posterView setImageWithURL:posterURL];
-
+    // Check for null poster
+    if([[NSNull null] isEqual:posterURLString]) {
+        NSLog(@"Null poster");
+    }
+    else {
+        NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+        NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+        [self.posterView setImageWithURL:posterURL];
+    }
+    
     // Retrieves the URL for the movie backdrop and sets it to the backdrop view
     NSString *backdropURLString = self.movie[@"backdrop_path"];
-    NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString];
     
-    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
-    [self.backdropView setImageWithURL:backdropURL];
+    // Check for null backdrop
+    if([[NSNull null] isEqual:backdropURLString]) {
+        NSLog(@"Null backdrop");
+    }
+    else {
+        NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString];
+        NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
+        [self.backdropView setImageWithURL:backdropURL];
+    }
     
     // Retrieve movie title and synopsis and put in appropriate spots
     self.titleLabel.text = self.movie[@"title"];
@@ -47,7 +59,7 @@
     
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
-                            
+    
 }
 
 - (IBAction)onTap:(id)sender {
