@@ -26,7 +26,7 @@ The following **optional** features are implemented:
 - [ ] For the large poster, load the low resolution image first and then switch to the high resolution image when complete.
 - [ ] Customize the selection effect of the cell.
 - [ ] Customize the navigation bar.
-- [ ] Customize the UI.
+- [X] Customize the UI.
 
 The following **additional** features are implemented:
 
@@ -47,7 +47,7 @@ GIF created with [Recordit](https://recordit.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had issues with the app crashing due to null posters or backdrops, so I started checking them, but I ran into issues with different types of null (e.g. [NSNull null] versus nil, etc.). I am still curious about these different kinds of null - I would not have known which kind to check for if I didn't use a breakpoint to figure it out.
 
 ## Credits
 
