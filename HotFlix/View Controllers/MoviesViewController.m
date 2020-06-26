@@ -16,11 +16,13 @@
 /**
  * A view controller for the main part of the HotFlix app.
  */
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSArray *filteredMovies;
 
 
 @end
@@ -33,6 +35,8 @@
     // Use the MoviesViewController as the data source and delegate for the tableView
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    self.searchBar.delegate = self;
     
     // Make network call
     [self fetchMovies];
@@ -73,6 +77,7 @@
                 NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 
                 self.movies = dataDictionary[@"results"];
+                self.filteredMovies = self.movies;
                 
                 // Reload the table view data since network calls can take
                 // longer than the rest of the code
@@ -92,8 +97,9 @@
 }
 
 // Creates a number of rows corresponding to the number of movie entries
+// or the number of entries matching search query
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count;
+    return self.filteredMovies.count;
 }
 
 // Configures each row
@@ -103,11 +109,11 @@
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     // Associates right movie with the right row
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
     
     // Assigns the title and overview for each movie to that movie's cell
     cell.titleLabel.text = movie[@"title"];
-    cell.synopsisLabel.text = movie[@"overview"]; //pulls from the API
+    cell.synopsisLabel.text = movie[@"overview"];
     
     // Default prefix for the poster image URLS
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
@@ -126,8 +132,23 @@
     return cell;
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    
+    if(searchText.length != 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject[@"title"] containsString:searchText];
+        }];
+        self.filteredMovies = [self.movies filteredArrayUsingPredicate:predicate];
+    }
+    else {
+        self.filteredMovies = self.movies;
+    }
+    
+    [self.tableView reloadData];
+}
+
 // Creates a network alert on the screen
--(void)createNetworkAlert {
+- (void)createNetworkAlert {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot get movies"
                                                                    message:@"The internet connection appears to be offline."
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
@@ -171,7 +192,7 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     
     // Passes in the movie associated with the cell to the next view controller
-    NSDictionary *movie = self.movies[indexPath.row];
+    NSDictionary *movie = self.filteredMovies[indexPath.row];
     DetailsViewController *detailsViewController = [segue destinationViewController];
     detailsViewController.movie = movie;
 }
