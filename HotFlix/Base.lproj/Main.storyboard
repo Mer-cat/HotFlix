@@ -204,6 +204,7 @@
                                         <size key="customSize" width="196" height="314"/>
                                         <connections>
                                             <outlet property="posterView" destination="3si-QO-hY3" id="TRD-AR-nb4"/>
+                                            <segue destination="hwW-D3-xLM" kind="show" id="pq7-gg-4TC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -241,6 +242,9 @@
             <point key="canvasLocation" x="61" y="-308"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="pq7-gg-4TC"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
