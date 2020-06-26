@@ -11,10 +11,12 @@
 #import "TrailerViewController.h"
 
 @interface DetailsViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UITextView *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 
 @end
 
@@ -22,9 +24,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // We will later learn how to properly package this code so as not to repeat the same
-    // code across different classes.
     
     // Retrieves the URL for the movie poster and sets it to the poster view
     NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
@@ -56,6 +55,11 @@
     // Retrieve movie title and synopsis and put in appropriate spots
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
+    
+    // Retrieve movie rating
+    CGFloat ratingValue =  [self.movie[@"vote_average"] floatValue];
+    NSString *ratingText = [NSString stringWithFormat:@"Rating: %.1f / 10", ratingValue];
+    self.ratingLabel.text = ratingText;
     
     [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
