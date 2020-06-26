@@ -31,11 +31,12 @@ The following **optional** features are implemented:
 The following **additional** features are implemented:
 
 - [X] Users can view movie trailer by tapping the backdrop in the detail screen of the movie.
+- [X] Users can see a movie's rating inside the detail view.
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. How to better structure the code such that code does not need to be repeated/copied and pasted across many view controllers
-2.
+2. Better ways to implement scroll views
 
 ## Video Walkthrough
 
@@ -48,6 +49,8 @@ GIF created with [Recordit](https://recordit.co/).
 ## Notes
 
 I had issues with the app crashing due to null posters or backdrops, so I started checking them, but I ran into issues with different types of null (e.g. [NSNull null] versus nil, etc.). I am still curious about these different kinds of null - I would not have known which kind to check for if I didn't use a breakpoint to figure it out.
+
+I also had issues with the UIScrollView functionality; I couldn't actually scroll down to view long descriptions because the UI would bounce me back up if I attempted to do so.
 
 ## Credits
 
