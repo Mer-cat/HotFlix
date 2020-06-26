@@ -22,6 +22,8 @@
 		D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BE24A4524F002CB55B /* DetailsViewController.m */; };
 		D4BCF0B224A549D400B72895 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */; };
 		D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */; };
+		D4BCF0B724A667DF00B72895 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCF0B624A667DF00B72895 /* WebKit.framework */; };
+		D4BCF0BA24A6681500B72895 /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B924A6681500B72895 /* TrailerViewController.m */; };
 		F32BF9DF40723A533BC339ED /* Pods_HotFlix_HotFlixUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418AE3730AF2B4720E6855A5 /* Pods_HotFlix_HotFlixUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,9 @@
 		D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
 		D4BCF0B324A54BE000B72895 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
 		D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionCell.m; sourceTree = "<group>"; };
+		D4BCF0B624A667DF00B72895 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D4BCF0B824A6681500B72895 /* TrailerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		D4BCF0B924A6681500B72895 /* TrailerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
 		EB8ECDC12C20A86D68D2B4AA /* Pods-HotFlix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlix.release.xcconfig"; path = "Target Support Files/Pods-HotFlix/Pods-HotFlix.release.xcconfig"; sourceTree = "<group>"; };
 		F6CF525F1419F87BFC305705 /* Pods-HotFlixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HotFlixTests.release.xcconfig"; path = "Target Support Files/Pods-HotFlixTests/Pods-HotFlixTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4BCF0B724A667DF00B72895 /* WebKit.framework in Frameworks */,
 				1DB016E4C6D3E098012D907B /* Pods_HotFlix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +117,7 @@
 		15128E80A99E9A06261F176F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4BCF0B624A667DF00B72895 /* WebKit.framework */,
 				779BFAFA0CAE5FCEEDC8E2D3 /* Pods_HotFlix.framework */,
 				418AE3730AF2B4720E6855A5 /* Pods_HotFlix_HotFlixUITests.framework */,
 				6636373B21ABD80688A98E6B /* Pods_HotFlixTests.framework */,
@@ -199,6 +206,8 @@
 				D44A81BE24A4524F002CB55B /* DetailsViewController.m */,
 				D4BCF0B024A549D400B72895 /* MoviesGridViewController.h */,
 				D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */,
+				D4BCF0B824A6681500B72895 /* TrailerViewController.h */,
+				D4BCF0B924A6681500B72895 /* TrailerViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -466,6 +475,7 @@
 				D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
 				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
+				D4BCF0BA24A6681500B72895 /* TrailerViewController.m in Sources */,
 				D4BCF0B224A549D400B72895 /* MoviesGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

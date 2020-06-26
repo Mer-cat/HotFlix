@@ -8,6 +8,7 @@
 
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "TrailerViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backdropView;
@@ -49,14 +50,22 @@
                             
 }
 
-/*
+- (IBAction)onTap:(id)sender {
+    [self performSegueWithIdentifier:@"trailerSegue" sender:nil];
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US", self.movie[@"id"]];
+    
+    // Passes the URL for this movie to the video player
+    TrailerViewController *trailerViewController = [segue destinationViewController];
+    trailerViewController.trailerURL = urlString;
+    
 }
-*/
+
 
 @end
