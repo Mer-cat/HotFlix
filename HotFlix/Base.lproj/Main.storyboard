@@ -60,9 +60,9 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="LSx-Wa-c70">
-                                <rect key="frame" x="0.0" y="333" width="414" height="230"/>
+                                <rect key="frame" x="97" y="357" width="219" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="61" y="397"/>
+            <point key="canvasLocation" x="60.869565217391312" y="396.42857142857139"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="Xye-YV-3qX">
@@ -151,11 +151,11 @@
             </objects>
             <point key="canvasLocation" x="838" y="-1037"/>
         </scene>
-        <!--Item-->
+        <!--Poster View-->
         <scene sceneID="rFS-CH-7eN">
             <objects>
                 <navigationController id="4LV-7h-5Ct" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="d7R-pJ-xEP"/>
+                    <tabBarItem key="tabBarItem" title="Poster View" image="now_playing_tabbar_item" id="d7R-pJ-xEP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NOc-rF-NX5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -243,9 +243,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pq7-gg-4TC"/>
+        <segue reference="YvE-6h-or7"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
     </resources>
 </document>

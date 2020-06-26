@@ -10,6 +10,7 @@
 #import "MovieCell.h"
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h" // Allows us to pull in poster images directly from URL
+#import "MBProgressHUD.h"
 
 
 /**
@@ -48,40 +49,45 @@
 - (void)fetchMovies {
     
     // Show activity indicator on screen
-    [self.activityIndicator startAnimating];
-    
-    // Fetch movie data
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
-    
-    // Allows reloads
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    
-    // This section of the code runs once the network request returns.
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-            [self createNetworkAlert];
-            
-        }
-        else {
-            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            self.movies = dataDictionary[@"results"];
-            
-            // Reload the table view data since network calls can take
-            // longer than the rest of the code
-            [self.tableView reloadData];
-        }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+
+    // Allows things to go on in the background while the HUD is animating
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
-        // Stops the refreshing symbol once the movies have been refreshed
-        [self.refreshControl endRefreshing];
+        // Fetch movie data
+        NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
         
-        // Stops and hides the activity indicator when
-        // the movies are done loading
-        [self.activityIndicator stopAnimating];
-    }];
-    [task resume];
+        // Allows reloads
+        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
+        
+        // This section of the code runs once the network request returns.
+        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            if (error != nil) {
+                NSLog(@"%@", [error localizedDescription]);
+                [self createNetworkAlert];
+                
+            }
+            else {
+                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                
+                self.movies = dataDictionary[@"results"];
+                
+                // Reload the table view data since network calls can take
+                // longer than the rest of the code
+                [self.tableView reloadData];
+            }
+            
+            // Stops the refreshing symbol once the movies have been refreshed
+            [self.refreshControl endRefreshing];
+            
+            // Stops and hides the activity indicator when
+            // the movies are done loading
+            [hud hideAnimated:YES];
+            
+        }];
+        [task resume];
+    });
 }
 
 // Creates a number of rows corresponding to the number of movie entries
