@@ -9,7 +9,7 @@
 #import "MoviesViewController.h"
 #import "MovieCell.h"
 #import "DetailsViewController.h"
-#import "UIImageView+AFNetworking.h" // Allows us to pull in poster images directly from URL
+#import "UIImageView+AFNetworking.h"  // Allows us to pull in poster images directly from URL
 #import "MBProgressHUD.h"
 
 
@@ -55,7 +55,7 @@
     // Show activity indicator on screen
     MBProgressHUD *activityIndicator = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     activityIndicator.label.text = NSLocalizedString(@"Loading...", @"HUD loading title");
-
+    
     // Allows things to go on in the background while the HUD is animating
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
@@ -102,7 +102,7 @@
     return self.filteredMovies.count;
 }
 
-// Configures each row
+// Configures each movie cell with title, image, and synopsis
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // Creates an instance of MovieCell(UITableViewCell) and uses cells with identifier MovieCell
@@ -172,6 +172,15 @@
                                                                    message:@"The internet connection appears to be offline."
                                                             preferredStyle:(UIAlertControllerStyleAlert)];
     
+    // Create a Try Again action
+    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^(UIAlertAction * _Nonnull action) {
+        [self fetchMovies];  // Retry
+    }];
+    
+    // Add the Try Again action to the alert controller
+    [alert addAction:tryAgainAction];
     
     // Create a cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
@@ -183,18 +192,8 @@
     // Add the cancel action to the alertController
     [alert addAction:cancelAction];
     
-    // Create an Try Again action
-    UIAlertAction *tryAgainAction = [UIAlertAction actionWithTitle:@"Try Again"
-                                                             style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction * _Nonnull action) {
-        [self fetchMovies];  // Retry
-    }];
-    // Add the Try Again action to the alert controller
-    [alert addAction:tryAgainAction];
-    
     // Show the alert
     [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
     }];
     
 }
@@ -202,11 +201,9 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
+
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     
