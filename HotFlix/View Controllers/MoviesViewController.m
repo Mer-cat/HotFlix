@@ -42,6 +42,7 @@
     [self fetchMovies];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
     
     // Refreshes the movie list each time the user pulls down
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
