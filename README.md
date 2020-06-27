@@ -42,7 +42,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/GMDVhFxIhp.gif' title='HotFlix Walkthrough' width='' alt='HotFlix Walkthrough' />
+<img src='http://g.recordit.co/yhVX1BlduP.gif' title='HotFlix Walkthrough (Part 1)' width='' alt='HotFlix Walkthrough' />
+
+<img src='http://g.recordit.co/57C2q0RABK.gif' title='HotFlix Walkthrough (Part 2)' width='' alt='HotFlix Walkthrough' />
 
 GIF created with [Recordit](https://recordit.co/).
 
