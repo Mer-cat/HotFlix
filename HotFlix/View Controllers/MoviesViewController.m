@@ -38,6 +38,9 @@
     
     self.searchBar.delegate = self;
     
+    // Autolayout row heights
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
     // Make network call
     [self fetchMovies];
     
