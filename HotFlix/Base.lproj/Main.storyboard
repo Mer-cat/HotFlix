@@ -280,7 +280,7 @@
             </objects>
             <point key="canvasLocation" x="1571" y="-308"/>
         </scene>
-        <!--Now Playing-->
+        <!--Posters-->
         <scene sceneID="D8z-GL-W6B">
             <objects>
                 <viewController id="Z3Q-pZ-mlr" customClass="MoviesGridViewController" sceneMemberID="viewController">
@@ -288,33 +288,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cIw-WI-8zz">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cIw-WI-8zz">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="AXN-tS-Jov">
-                                    <size key="itemSize" width="196" height="314"/>
+                                    <size key="itemSize" width="197" height="275"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MovieCollectionCell" id="kt0-aG-gXq" customClass="MovieCollectionCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="196" height="314"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="197" height="275"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X5I-YQ-Ybw">
-                                            <rect key="frame" x="0.0" y="0.0" width="196" height="314"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="275"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3si-QO-hY3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="196" height="314"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3si-QO-hY3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="197" height="275"/>
                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3si-QO-hY3" secondAttribute="trailing" id="CwI-Cw-Z3k"/>
+                                                <constraint firstItem="3si-QO-hY3" firstAttribute="top" secondItem="X5I-YQ-Ybw" secondAttribute="top" id="S0i-Pu-iOU"/>
+                                                <constraint firstItem="3si-QO-hY3" firstAttribute="leading" secondItem="X5I-YQ-Ybw" secondAttribute="leading" id="itv-tq-GuG"/>
+                                                <constraint firstAttribute="bottom" secondItem="3si-QO-hY3" secondAttribute="bottom" id="lN0-kA-8CS"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <size key="customSize" width="196" height="314"/>
+                                        <size key="customSize" width="197" height="275"/>
                                         <connections>
                                             <outlet property="posterView" destination="3si-QO-hY3" id="TRD-AR-nb4"/>
                                             <segue destination="hwW-D3-xLM" kind="show" id="pq7-gg-4TC"/>
@@ -324,9 +328,15 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cIw-WI-8zz" secondAttribute="bottom" id="S4d-eO-8dh"/>
+                            <constraint firstItem="cIw-WI-8zz" firstAttribute="top" secondItem="1a8-Nn-nba" secondAttribute="top" id="aIP-OW-CSY"/>
+                            <constraint firstItem="cIw-WI-8zz" firstAttribute="leading" secondItem="fRF-nI-8vA" secondAttribute="leading" id="j8H-0M-pMy"/>
+                            <constraint firstItem="cIw-WI-8zz" firstAttribute="trailing" secondItem="fRF-nI-8vA" secondAttribute="trailing" id="zGI-WZ-bqD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fRF-nI-8vA"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Now Playing" id="z03-cT-gTw"/>
+                    <navigationItem key="navigationItem" title="Posters" id="z03-cT-gTw"/>
                     <connections>
                         <outlet property="collectionView" destination="cIw-WI-8zz" id="g1Z-S4-zLe"/>
                     </connections>
@@ -357,7 +367,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="YvE-6h-or7"/>
+        <segue reference="pq7-gg-4TC"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="fire_icon" width="32" height="32"/>
