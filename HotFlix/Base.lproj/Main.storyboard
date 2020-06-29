@@ -112,49 +112,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BYA-w5-nma">
-                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DSN-wL-aBc">
                                         <rect key="frame" x="0.0" y="-84" width="414" height="896"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-87-rim">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="336"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eB2-87-rim">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="298.5"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="7LI-8p-J1U" appends="YES" id="xrK-xU-GTQ"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3w-dr-mig">
-                                                <rect key="frame" x="8" y="237" width="130" height="190"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S3w-dr-mig">
+                                                <rect key="frame" x="16" y="203.5" width="130" height="190"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="130" id="aeD-fn-sbj"/>
+                                                    <constraint firstAttribute="height" constant="190" id="bnU-pj-D9P"/>
+                                                </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdJ-mV-NU8">
-                                                <rect key="frame" x="146" y="344" width="241" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdJ-mV-NU8">
+                                                <rect key="frame" x="154" y="326" width="252" height="20.5"/>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Text View" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFe-hE-8yd">
-                                                <rect key="frame" x="8" y="435" width="398" height="43"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL0-CC-5uR">
-                                                <rect key="frame" x="146" y="368" width="241" height="59"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL0-CC-5uR">
+                                                <rect key="frame" x="154" y="362.5" width="252" height="31"/>
+                                                <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Galvji-Bold" family="Galvji" pointSize="26"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gxl-xh-HbF">
+                                                <rect key="frame" x="16" y="421" width="390" height="26"/>
+                                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Galvji" family="Galvji" pointSize="22"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="iL0-CC-5uR" firstAttribute="top" secondItem="HdJ-mV-NU8" secondAttribute="bottom" constant="16" id="3FJ-gg-GMP"/>
+                                            <constraint firstItem="S3w-dr-mig" firstAttribute="leading" secondItem="Y9W-Cb-Lc4" secondAttribute="leading" constant="16" id="4Rb-os-MOw"/>
+                                            <constraint firstItem="Gxl-xh-HbF" firstAttribute="leading" secondItem="Y9W-Cb-Lc4" secondAttribute="leading" constant="16" id="4Rr-yl-EFc"/>
+                                            <constraint firstItem="iL0-CC-5uR" firstAttribute="leading" secondItem="S3w-dr-mig" secondAttribute="trailing" constant="8" id="53b-2p-D0E"/>
+                                            <constraint firstItem="Gxl-xh-HbF" firstAttribute="leading" secondItem="S3w-dr-mig" secondAttribute="leading" id="9RT-Cs-7gM"/>
+                                            <constraint firstItem="Gxl-xh-HbF" firstAttribute="top" secondItem="S3w-dr-mig" secondAttribute="bottom" constant="27.5" id="HGX-g7-iYL"/>
+                                            <constraint firstItem="Y9W-Cb-Lc4" firstAttribute="trailing" secondItem="HdJ-mV-NU8" secondAttribute="trailing" constant="8" id="M4a-Yx-b6P"/>
+                                            <constraint firstItem="HdJ-mV-NU8" firstAttribute="leading" secondItem="S3w-dr-mig" secondAttribute="trailing" constant="8" id="OI1-2X-OrS"/>
+                                            <constraint firstItem="eB2-87-rim" firstAttribute="top" secondItem="Y9W-Cb-Lc4" secondAttribute="top" id="Rbu-Vk-Oum"/>
+                                            <constraint firstItem="eB2-87-rim" firstAttribute="trailing" secondItem="Y9W-Cb-Lc4" secondAttribute="trailing" id="T3M-Hb-YMm"/>
+                                            <constraint firstItem="S3w-dr-mig" firstAttribute="centerY" secondItem="eB2-87-rim" secondAttribute="bottom" id="Ucb-qK-siS"/>
+                                            <constraint firstItem="Y9W-Cb-Lc4" firstAttribute="trailing" secondItem="iL0-CC-5uR" secondAttribute="trailing" constant="8" id="YFn-Lv-MpT"/>
+                                            <constraint firstItem="Y9W-Cb-Lc4" firstAttribute="trailing" secondItem="Gxl-xh-HbF" secondAttribute="trailing" constant="8" id="aBy-2Z-J9N"/>
+                                            <constraint firstItem="Y9W-Cb-Lc4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Gxl-xh-HbF" secondAttribute="bottom" constant="85" id="b7r-1c-ej0"/>
+                                            <constraint firstItem="eB2-87-rim" firstAttribute="height" secondItem="Y9W-Cb-Lc4" secondAttribute="height" multiplier="1:3" id="rkv-IU-BES"/>
+                                            <constraint firstItem="iL0-CC-5uR" firstAttribute="bottom" secondItem="S3w-dr-mig" secondAttribute="bottom" id="slw-Ks-jyV"/>
+                                            <constraint firstItem="iL0-CC-5uR" firstAttribute="leading" secondItem="HdJ-mV-NU8" secondAttribute="leading" id="uFm-iO-2x9"/>
+                                            <constraint firstItem="eB2-87-rim" firstAttribute="leading" secondItem="Y9W-Cb-Lc4" secondAttribute="leading" id="vrf-Vk-cdB"/>
+                                        </constraints>
                                         <viewLayoutGuide key="contentLayoutGuide" id="y8i-Wt-r5A"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="Y9W-Cb-Lc4"/>
                                     </scrollView>
@@ -170,7 +191,7 @@
                         <outlet property="backdropView" destination="eB2-87-rim" id="Qwm-jK-t5t"/>
                         <outlet property="posterView" destination="S3w-dr-mig" id="mTV-g3-xBp"/>
                         <outlet property="ratingLabel" destination="HdJ-mV-NU8" id="BNu-dU-W4x"/>
-                        <outlet property="synopsisLabel" destination="BFe-hE-8yd" id="mjT-vI-ble"/>
+                        <outlet property="synopsisLabel" destination="Gxl-xh-HbF" id="RTn-rJ-phU"/>
                         <outlet property="titleLabel" destination="iL0-CC-5uR" id="IF2-Rk-1Bi"/>
                     </connections>
                 </viewController>
