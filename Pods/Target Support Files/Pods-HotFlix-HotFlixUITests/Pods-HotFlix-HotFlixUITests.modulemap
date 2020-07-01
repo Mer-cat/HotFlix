@@ -1,0 +1,6 @@
+framework module Pods_HotFlix_HotFlixUITests {
+  umbrella header "Pods-HotFlix-HotFlixUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
