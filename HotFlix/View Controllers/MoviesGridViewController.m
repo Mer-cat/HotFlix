@@ -11,12 +11,12 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "Movie.h"
+#import "MovieAPIManager.h"
 
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSMutableArray *movies;
 
 @end
 
@@ -46,34 +46,13 @@
 
 // Makes network call to fetch information on currently playing movies
 - (void)fetchMovies {
-    
-    // Fetch movie data
-    NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
-    
-    // Allows reloads
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    
-    // This section of the code runs once the network request returns.
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-            
-        }
-        else {
-            NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-            
-            // Prints out the resulting dataDictionary to terminal
-            NSLog(@"%@", dataDictionary);
-            NSArray *dictionaries = dataDictionary[@"results"];
-            
-            self.movies = [Movie moviesWithDictionaries:dictionaries];
-            
+    MovieAPIManager *manager = [MovieAPIManager new];
+    [manager fetchNowPlaying:^(NSMutableArray *movies, NSError *error) {
+        if(movies){
+            self.movies = movies;
             [self.collectionView reloadData];
         }
-        
     }];
-    [task resume];
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

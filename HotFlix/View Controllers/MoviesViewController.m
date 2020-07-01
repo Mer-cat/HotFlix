@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"  // Allows us to pull in poster images directly from URL
 #import "MBProgressHUD.h"
 #import "Movie.h"
+#import "MovieAPIManager.h"
 
 
 /**
@@ -61,49 +62,25 @@
     MBProgressHUD *activityIndicator = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
     activityIndicator.label.text = NSLocalizedString(@"Loading...", @"HUD loading title");
     
-    // Allows things to go on in the background while the HUD is animating
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+    // new is an alternative syntax to calling alloc init.
+    MovieAPIManager *manager = [MovieAPIManager new];
+    [manager fetchNowPlaying:^(NSMutableArray *movies, NSError *error) {
+        if(movies){
+            self.movies = movies;
+            self.filteredMovies = movies;
+            [self.tableView reloadData];
+        }
+        else{
+            [self createNetworkAlert];
+        }
         
-        // Fetch movie data
-        NSURL *url = [NSURL URLWithString:@"https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"];
+        // Stops the refreshing symbol once the movies have been refreshed
+        [self.refreshControl endRefreshing];
         
-        // Allows reloads
-        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
-        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-        
-        // This section of the code runs once the network request returns.
-        NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-            if (error != nil) {
-                NSLog(@"%@", [error localizedDescription]);
-                [self createNetworkAlert];
-                
-            }
-            else {
-                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                
-                NSArray *dictionaries = dataDictionary[@"results"];
-                self.movies = [[NSMutableArray alloc] init];
-                
-                // Populate the movies array with Movie objects
-                self.movies = [Movie moviesWithDictionaries:dictionaries];
-                
-                self.filteredMovies = self.movies;
-                
-                // Reload the table view data since network calls can take
-                // longer than the rest of the code
-                [self.tableView reloadData];
-            }
-            
-            // Stops the refreshing symbol once the movies have been refreshed
-            [self.refreshControl endRefreshing];
-            
-            // Stops and hides the activity indicator when
-            // the movies are done loading
-            [activityIndicator hideAnimated:YES];
-            
-        }];
-        [task resume];
-    });
+        // Stops and hides the activity indicator when
+        // the movies are done loading
+        [activityIndicator hideAnimated:YES];
+    }];
 }
 
 // Creates a number of rows corresponding to the number of movie entries

@@ -21,6 +21,7 @@
 		D44A81BC24A3FB01002CB55B /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BB24A3FB01002CB55B /* MovieCell.m */; };
 		D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44A81BE24A4524F002CB55B /* DetailsViewController.m */; };
 		D478EE1424ACE8600007FE9C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = D478EE1324ACE8600007FE9C /* Movie.m */; };
+		D478EE1A24ACF8CE0007FE9C /* MovieAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D478EE1924ACF8CE0007FE9C /* MovieAPIManager.m */; };
 		D4BCF0B224A549D400B72895 /* MoviesGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */; };
 		D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BCF0B424A54BE000B72895 /* MovieCollectionCell.m */; };
 		D4BCF0B724A667DF00B72895 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCF0B624A667DF00B72895 /* WebKit.framework */; };
@@ -77,6 +78,8 @@
 		D44A81BE24A4524F002CB55B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		D478EE1224ACE8600007FE9C /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		D478EE1324ACE8600007FE9C /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		D478EE1824ACF8CE0007FE9C /* MovieAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieAPIManager.h; sourceTree = "<group>"; };
+		D478EE1924ACF8CE0007FE9C /* MovieAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieAPIManager.m; sourceTree = "<group>"; };
 		D4BCF0B024A549D400B72895 /* MoviesGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoviesGridViewController.h; sourceTree = "<group>"; };
 		D4BCF0B124A549D400B72895 /* MoviesGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoviesGridViewController.m; sourceTree = "<group>"; };
 		D4BCF0B324A54BE000B72895 /* MovieCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieCollectionCell.h; sourceTree = "<group>"; };
@@ -166,6 +169,7 @@
 		D44A817D24A3BAE4002CB55B /* HotFlix */ = {
 			isa = PBXGroup;
 			children = (
+				D478EE1724ACF7F90007FE9C /* API */,
 				D44A81B924A3C40C002CB55B /* Models */,
 				D44A81B724A3C401002CB55B /* Views */,
 				D44A81B624A3C3F9002CB55B /* View Controllers */,
@@ -233,6 +237,15 @@
 				D478EE1324ACE8600007FE9C /* Movie.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D478EE1724ACF7F90007FE9C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D478EE1824ACF8CE0007FE9C /* MovieAPIManager.h */,
+				D478EE1924ACF8CE0007FE9C /* MovieAPIManager.m */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +491,7 @@
 				D478EE1424ACE8600007FE9C /* Movie.m in Sources */,
 				D44A81B524A3C34D002CB55B /* MoviesViewController.m in Sources */,
 				D44A81BF24A4524F002CB55B /* DetailsViewController.m in Sources */,
+				D478EE1A24ACF8CE0007FE9C /* MovieAPIManager.m in Sources */,
 				D4BCF0B524A54BE000B72895 /* MovieCollectionCell.m in Sources */,
 				D44A819124A3BAE5002CB55B /* main.m in Sources */,
 				D44A818324A3BAE4002CB55B /* SceneDelegate.m in Sources */,
