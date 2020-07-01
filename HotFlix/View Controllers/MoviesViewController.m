@@ -11,6 +11,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"  // Allows us to pull in poster images directly from URL
 #import "MBProgressHUD.h"
+#import "Movie.h"
 
 
 /**
@@ -19,7 +20,7 @@
 @interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *movies;
+@property (nonatomic, strong) NSMutableArray *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *filteredMovies;
@@ -80,7 +81,12 @@
             else {
                 NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
                 
-                self.movies = dataDictionary[@"results"];
+                NSArray *dictionaries = dataDictionary[@"results"];
+                self.movies = [[NSMutableArray alloc] init];
+                
+                // Populate the movies array with Movie objects
+                self.movies = [Movie moviesWithDictionaries:dictionaries];
+                
                 self.filteredMovies = self.movies;
                 
                 // Reload the table view data since network calls can take
@@ -113,25 +119,7 @@
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"];
     
     // Associates right movie with the right row
-    NSDictionary *movie = self.filteredMovies[indexPath.row];
-    
-    // Assigns the title and overview for each movie to that movie's cell
-    cell.titleLabel.text = movie[@"title"];
-    cell.synopsisLabel.text = movie[@"overview"];
-    
-    // Default prefix for the poster image URLS
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    
-    // NSURL is basically a string that check to see if it's a valid URL
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-    
-    // Prevent any possible flickering effects by clearing out previous image
-    cell.posterView.image = nil;
-    
-    // Assign the image from the posterURL to the posterView for each cell
-    [cell.posterView setImageWithURL:posterURL];
+    cell.movie = self.filteredMovies[indexPath.row];
     
     return cell;
 }
@@ -140,8 +128,8 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
     if(searchText.length != 0) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(NSDictionary *evaluatedObject, NSDictionary *bindings) {
-            return [evaluatedObject[@"title"] containsString:searchText];
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Movie *evaluatedObject, NSDictionary *bindings) {
+            return [evaluatedObject.title containsString:searchText];
         }];
         self.filteredMovies = [self.movies filteredArrayUsingPredicate:predicate];
     }
@@ -212,9 +200,9 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
     
     // Passes in the movie associated with the cell to the next view controller
-    NSDictionary *movie = self.filteredMovies[indexPath.row];
+    Movie *movieObject = self.filteredMovies[indexPath.row];
     DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.movie = movie;
+    detailsViewController.movie = movieObject;
 }
 
 

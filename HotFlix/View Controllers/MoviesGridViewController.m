@@ -10,6 +10,7 @@
 #import "MovieCollectionCell.h"
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "Movie.h"
 
 @interface MoviesGridViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -64,8 +65,9 @@
             
             // Prints out the resulting dataDictionary to terminal
             NSLog(@"%@", dataDictionary);
+            NSArray *dictionaries = dataDictionary[@"results"];
             
-            self.movies = dataDictionary[@"results"];
+            self.movies = [Movie moviesWithDictionaries:dictionaries];
             
             [self.collectionView reloadData];
         }
@@ -83,17 +85,15 @@
     MovieCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MovieCollectionCell" forIndexPath:indexPath];
     
     // Associates right movie with the right item in the collection view
-    NSDictionary *movie = self.movies[indexPath.item];
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = movie[@"poster_path"];
-    NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-    NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+    Movie *movie = self.movies[indexPath.item];
     
     // Prevent any possible flickering effects by clearing out previous image
     cell.posterView.image = nil;
     
     // Assign the image from the posterURL to the posterView for each cell
-    [cell.posterView setImageWithURL:posterURL];
+    if (movie.posterUrl != nil){
+        [cell.posterView setImageWithURL:movie.posterUrl];
+    }
     
     return cell;
 }
@@ -110,7 +110,7 @@
      NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
      
      // Passes in the movie associated with the cell to the next view controller
-     NSDictionary *movie = self.movies[indexPath.row];
+     Movie *movie = self.movies[indexPath.row];
      DetailsViewController *detailsViewController = [segue destinationViewController];
      detailsViewController.movie = movie;
      

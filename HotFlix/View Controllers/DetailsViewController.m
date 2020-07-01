@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "TrailerViewController.h"
+#import "Movie.h"
 
 @interface DetailsViewController ()
 
@@ -25,39 +26,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Retrieves the URL for the movie poster and sets it to the poster view
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = self.movie[@"poster_path"];
     
-    // Check for null poster
-    if([[NSNull null] isEqual:posterURLString]) {
-        NSLog(@"Null poster");
+    if (self.movie.posterUrl != nil) {
+        [self.posterView setImageWithURL:self.movie.posterUrl];
     }
-    else {
-        NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
-        NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-        [self.posterView setImageWithURL:posterURL];
-    }
-    
-    // Retrieves the URL for the movie backdrop and sets it to the backdrop view
-    NSString *backdropURLString = self.movie[@"backdrop_path"];
     
     // Check for null backdrop
-    if([[NSNull null] isEqual:backdropURLString]) {
-        NSLog(@"Null backdrop");
-    }
-    else {
-        NSString *fullBackdropURLString = [baseURLString stringByAppendingString:backdropURLString];
-        NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
-        [self.backdropView setImageWithURL:backdropURL];
+    if (self.movie.backdropUrl != nil) {
+        [self.backdropView setImageWithURL:self.movie.backdropUrl];
     }
     
     // Retrieve movie title and synopsis and put in appropriate spots
-    self.titleLabel.text = self.movie[@"title"];
-    self.synopsisLabel.text = self.movie[@"overview"];
-    
+    self.titleLabel.text = self.movie.title;
+    self.synopsisLabel.text = self.movie.synopsis;
     // Retrieve movie rating
-    CGFloat ratingValue =  [self.movie[@"vote_average"] floatValue];
+    CGFloat ratingValue =  [self.movie.voteAverage floatValue];
     NSString *ratingText = [NSString stringWithFormat:@"Rating: %.1f / 10", ratingValue];
     self.ratingLabel.text = ratingText;
     
@@ -75,7 +58,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US", self.movie[@"id"]];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US", self.movie.movieID];
     
     // Passes the URL for this movie to the video player
     TrailerViewController *trailerViewController = [segue destinationViewController];
